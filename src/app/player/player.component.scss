@@ -2,13 +2,13 @@
     width: 300px;
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color: gray;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
+    transition: all 0.125s ease-in-out;
     span {
         font-size: 30px;
-        margin-left: 16px;
+        margin-left: 15px;
     }
 
     img {
@@ -16,10 +16,18 @@
         height: 50px;
         object-fit: cover;
         border-radius: 100%;
+        margin-right: 15px;
+        margin-left: 50px;
+        transition: all 0.125s ease-in-out;
     }
 }
 
 .player-active {
     background-color: orange !important;
+    transition: all 0.125s ease-in-out;
+    img {
+        margin-left: 0;
+        transition: all 0.125s ease-in-out;
+    }
 }
 

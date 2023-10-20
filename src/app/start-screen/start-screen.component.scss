@@ -1,9 +1,26 @@
 .start-screen {
-    background-color: #404040;
-    width: 100%;
+    background-color: black;
+    position: absolute;
+    width: 100vw;
     height: 100vh;
+    max-width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-        width: 100%;
+        height: 100vh;
+    }
+}
+
+h1  {
+    color: white;
+    font-size: 80px;
+    text-shadow: 0 0 5px black;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        scale: 1.3;
+        cursor: pointer;
     }
 }
 
@@ -11,8 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 
-    &:hover {
-        cursor: pointer;
-    }
+
 }

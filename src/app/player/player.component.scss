@@ -2,9 +2,13 @@
     display: flex;
     left: 0;
     align-items: center;
-    transition: all 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
+    &:hover{
+        filter: brightness(1.5);
+    }
 
     span {
         font-size: 24px;
@@ -28,10 +32,16 @@
 
     left: -50%;
     z-index: 3;
-    transition: all 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
     img {
           filter: hue-rotate(180deg);
-        transition: all 0.3s ease-in-out;
+        transition: left 0.3s ease-in-out;
     }
 }
 
+@media (max-width:680px) {
+    .player-active {
+        top: 100px;
+        left: 8%;
+    }
+}

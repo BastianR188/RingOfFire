@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from '../../models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { DialogEditPlayerComponent } from '../dialog-edit-player/dialog-edit-player.component';
 import { Firestore, collection, doc, docData, updateDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router'
 
@@ -80,9 +81,8 @@ export class GameComponent implements OnInit {
 
   }
 
-  openDialog(): void {
+  openDialog(): any {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
     dialogRef.afterClosed().subscribe((result: string) => {
       if (result) {
         this.game.players.push(result);
@@ -98,5 +98,12 @@ export class GameComponent implements OnInit {
     } else {
       this.takeCard();
     }
+  }
+
+  editPlayer(playerId: number) {
+    const dialogRef = this.dialog.open(DialogEditPlayerComponent);
+    dialogRef.afterClosed().subscribe((change: string) => {
+      console.log('Received change', change);
+    })
   }
 }

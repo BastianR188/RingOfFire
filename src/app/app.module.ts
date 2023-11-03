@@ -20,6 +20,7 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { DialogEditPlayerComponent } from './dialog-edit-player/dialog-edit-player.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    DialogEditPlayerComponent
   ],
   imports: [
     BrowserModule,

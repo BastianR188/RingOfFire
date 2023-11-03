@@ -1,7 +1,7 @@
 <div class="player-header">
     <div class="players">
     <app-player *ngFor="let player of game.players; let i = index" [playerAcitve]="i === game.currentplayer"
-        [name]="player" class="player-position"></app-player>
+        [name]="player" (click)="editPlayer(i)" class="player-position"></app-player>
     </div>
 </div>
 <div class="field">

@@ -93,13 +93,17 @@
 }
 
 
+
 @media (max-width:680px) {
     .pin-bottom {
-        left: 0;
-        right: 0;
+        inset: auto 0 32px 0;
     }
     .btn-add {
         bottom: 8px;
         right: 8px;
+    }
+    .player-header {
+        width: 100vw;
+        max-width: 80%;
     }
 }

@@ -8,7 +8,6 @@
     align-items: center;
 }
 
-
 .card-stack {
     position: relative;
    
@@ -65,23 +64,42 @@
     }
 }
 
-.player-position {
+.player-header {
     position: absolute;
-    right: 0;
+    width: 50%;
+    right: 32px;
+    top: 8px;
+
+}
+.players {
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-position {
+    max-width: 1px;
     z-index: 2;
-    box-shadow: 4px 4px 4px black;
-    border-bottom-left-radius: 50%;
 }
 
 .btn-add {
-    position: absolute;
-    right: 32px;
-    bottom: 32px;
+    position: fixed;
+    inset: auto 32px 32px auto;
 }
 
 .pin-bottom {
-    position: absolute;
-    bottom: 32px;
-    left: 100px;
-    right: 100px;
+    position: fixed;
+    // position: absolute;
+    inset: auto 100px 32px 100px;
+}
+
+
+@media (max-width:680px) {
+    .pin-bottom {
+        left: 0;
+        right: 0;
+    }
+    .btn-add {
+        bottom: 8px;
+        right: 8px;
+    }
 }

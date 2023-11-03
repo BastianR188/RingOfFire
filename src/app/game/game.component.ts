@@ -91,4 +91,12 @@ export class GameComponent implements OnInit {
     });
 
   }
+
+  addPlayer() {
+    if (this.game.players.length <= 0) {
+      this.openDialog();
+    } else {
+      this.takeCard();
+    }
+  }
 }

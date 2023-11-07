@@ -1,6 +1,10 @@
 {
-  "functions": {
-    "source": "functions"
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   },
   "hosting": {
     "source": ".",
@@ -12,5 +16,8 @@
     "frameworksBackend": {
       "region": "europe-west1"
     }
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

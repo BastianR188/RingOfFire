@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router'
 export class GameComponent implements OnInit {
   game: Game = new Game();
   gameId: string;
+  gameOver = false;
 
 
   constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
@@ -30,6 +31,7 @@ export class GameComponent implements OnInit {
         this.game.currentplayer = game.currentplayer;
         this.game.playedCard = game.playedCard;
         this.game.players = game.players;
+        this.game.player_images = game.player_images;
         this.game.stack = game.stack;
         this.game.pickCardAnimation = game.pickCardAnimation;
         this.game.currentCard = game.currentCard;
@@ -52,7 +54,9 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (this.game.players.length > 0) {
+    if (this.game.stack.length == 0) {
+      this.gameOver = true;
+    } else if (this.game.players.length > 0) {
       if (!this.game.pickCardAnimation) {
         this.game.currentCard = this.game.stack.pop();
         this.game.pickCardAnimation = true;
@@ -86,10 +90,10 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: string) => {
       if (result) {
         this.game.players.push(result);
+        this.game.player_images.push('1.png');
         this.saveGame();
       }
     });
-
   }
 
   addPlayer() {
@@ -101,9 +105,20 @@ export class GameComponent implements OnInit {
   }
 
   editPlayer(playerId: number) {
-    const dialogRef = this.dialog.open(DialogEditPlayerComponent);
-    dialogRef.afterClosed().subscribe((change: string) => {
-      console.log('Received change', change);
+    const dialogRef = this.dialog.open(DialogEditPlayerComponent, {
+      data: { playerId: playerId }
+    });
+    dialogRef.afterClosed().subscribe((change: any) => {
+      if (change) {
+        if (change == 'DELETE') {
+          this.game.player_images.splice(playerId, 1);
+          this.game.players.splice(playerId, 1);
+        } else {
+          this.game.player_images[playerId] = change;
+        }
+        this.saveGame();
+      }
+
     })
   }
 }
